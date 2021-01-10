@@ -1,0 +1,47 @@
+<button mat-raised-button color="primary" (click)="loadAll.emit()">
+  Load All
+</button>
+<div cdkDropListGroup>
+  <div
+    class="list-container"
+    *ngFor="let storyColumn of stories; let i = index"
+  >
+    <h2>Column {{ i }}</h2>
+
+    <button (click)="addNew(i, storyColumn)" mat-raised-button color="primary">
+      Add New
+    </button>
+
+    <div
+      id="{{ i }}"
+      cdkDropList
+      [cdkDropListData]="storyColumn"
+      class="drag-list"
+      (cdkDropListDropped)="dropStory($event, i)"
+    >
+      <div
+        class="drag-box"
+        *ngFor="let story of storyColumn"
+        [cdkDragData]="story"
+        cdkDrag
+      >
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            #storyTitle
+            [ngModel]="story.title"
+            (blur)="updateStory(story, storyTitle.value)"
+          />
+        </mat-form-field>
+        -
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="delete.emit(story.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

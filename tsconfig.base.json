@@ -15,8 +15,26 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngrx-data-nestjs-minimal-boilerplate-kanban/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/shared/state/story": [
+        "libs/shared/state/story/src/index.ts"
+      ],
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/api/story": [
+        "libs/api/story/src/index.ts"
+      ],
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/board/ui": [
+        "libs/board/ui/src/index.ts"
+      ],
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/board/rest": [
+        "libs/board/rest/src/index.ts"
+      ],
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/api/shared/story": [
+        "libs/api/shared/story/src/index.ts"
+      ],
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/board/ws": [
+        "libs/board/ws/src/index.ts"
+      ],
+      "@ngrx-data-nestjs-minimal-boilerplate-kanban/shared/type/story": [
+        "libs/shared/type/story/src/index.ts"
       ]
     }
   },

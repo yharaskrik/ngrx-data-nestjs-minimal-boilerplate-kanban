@@ -164,22 +164,250 @@
         }
       }
     },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
+    "shared-state-story": {
+      "root": "libs/shared/state/story",
+      "sourceRoot": "libs/shared/state/story/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": ["libs/shared/state/story/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/state/story"],
+          "options": {
+            "jestConfig": "libs/shared/state/story/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/state/story",
+            "tsConfig": "libs/shared/state/story/tsconfig.lib.json",
+            "packageJson": "libs/shared/state/story/package.json",
+            "main": "libs/shared/state/story/src/index.ts",
+            "assets": ["libs/shared/state/story/*.md"]
+          }
+        }
+      }
+    },
+    "api-story": {
+      "root": "libs/api/story",
+      "sourceRoot": "libs/api/story/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/story/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/story"],
+          "options": {
+            "jestConfig": "libs/api/story/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/api/story",
+            "tsConfig": "libs/api/story/tsconfig.lib.json",
+            "packageJson": "libs/api/story/package.json",
+            "main": "libs/api/story/src/index.ts",
+            "assets": ["libs/api/story/*.md"]
+          }
+        }
+      }
+    },
+    "board-ui": {
+      "projectType": "library",
+      "root": "libs/board/ui",
+      "sourceRoot": "libs/board/ui/src",
+      "prefix": "ngrx-data-nestjs-minimal-boilerplate-kanban",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/board/ui/tsconfig.lib.json",
+            "project": "libs/board/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/board/ui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/board/ui/src/**/*.ts",
+              "libs/board/ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/board/ui"],
+          "options": {
+            "jestConfig": "libs/board/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "board-rest": {
+      "projectType": "library",
+      "root": "libs/board/rest",
+      "sourceRoot": "libs/board/rest/src",
+      "prefix": "ngrx-data-nestjs-minimal-boilerplate-kanban",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/board/rest/tsconfig.lib.json",
+            "project": "libs/board/rest/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/board/rest/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/board/rest/src/**/*.ts",
+              "libs/board/rest/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/board/rest"],
+          "options": {
+            "jestConfig": "libs/board/rest/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-shared-story": {
+      "root": "libs/api/shared/story",
+      "sourceRoot": "libs/api/shared/story/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/shared/story/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/shared/story"],
+          "options": {
+            "jestConfig": "libs/api/shared/story/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/api/shared/story",
+            "tsConfig": "libs/api/shared/story/tsconfig.lib.json",
+            "packageJson": "libs/api/shared/story/package.json",
+            "main": "libs/api/shared/story/src/index.ts",
+            "assets": ["libs/api/shared/story/*.md"]
+          }
+        }
+      }
+    },
+    "board-ws": {
+      "projectType": "library",
+      "root": "libs/board/ws",
+      "sourceRoot": "libs/board/ws/src",
+      "prefix": "ngrx-data-nestjs-minimal-boilerplate-kanban",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/board/ws/tsconfig.lib.json",
+            "project": "libs/board/ws/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/board/ws/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/board/ws/src/**/*.ts",
+              "libs/board/ws/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/board/ws"],
+          "options": {
+            "jestConfig": "libs/board/ws/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-type-story": {
+      "root": "libs/shared/type/story",
+      "sourceRoot": "libs/shared/type/story/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/type/story/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/type/story"],
+          "options": {
+            "jestConfig": "libs/shared/type/story/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/type/story",
+            "tsConfig": "libs/shared/type/story/tsconfig.lib.json",
+            "packageJson": "libs/shared/type/story/package.json",
+            "main": "libs/shared/type/story/src/index.ts",
+            "assets": ["libs/shared/type/story/*.md"]
           }
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "yarn",
+    "analytics": "d9afe381-7e84-4e96-b29c-054820ee7dc3"
   },
   "schematics": {
     "@nrwl/angular": {
