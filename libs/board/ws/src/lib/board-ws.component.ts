@@ -31,10 +31,6 @@ export class BoardWsComponent implements OnInit {
     this.storyWsDataService.update(story, { isOptimistic: true });
   }
 
-  loadAll(): void {
-    this.storyWsDataService.getAll();
-  }
-
   delete(id: DeleteStoryDto): void {
     this.storyWsDataService.delete(id);
   }

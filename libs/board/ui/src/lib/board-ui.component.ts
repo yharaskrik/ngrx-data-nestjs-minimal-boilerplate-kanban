@@ -15,8 +15,6 @@ import {
 export class BoardUiComponent {
   @Input() stories: Stories[];
 
-  @Output() loadAll = new EventEmitter<void>();
-
   @Output() add = new EventEmitter<Story>();
 
   @Output() delete = new EventEmitter<DeleteStoryDto>();

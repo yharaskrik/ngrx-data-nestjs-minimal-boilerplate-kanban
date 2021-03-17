@@ -12,6 +12,7 @@ import { storyEntityMetadata } from '@ngrx-data-nestjs-minimal-boilerplate-kanba
 import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NgrxDataWebsocketClientModule } from '@trellisorg/ngrx-data-websocket-client';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -39,6 +40,7 @@ import { AppComponent } from './app.component';
         Story: 'stories',
       },
     }),
+    StoreDevtoolsModule.instrument(),
     NgrxDataWebsocketClientModule.forRoot({
       host: 'http://localhost:80',
     }),

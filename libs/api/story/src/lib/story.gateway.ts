@@ -67,7 +67,7 @@ export class StoryGateway
       { new: true }
     );
 
-    client.to('stories').emit('ngrx-data-websocket/save/update-one/success', {
+    client.to('stories').emit(SocketOp.SAVE_UPDATE_ONE_SUCCESS, {
       data: {
         id,
         changes: updated,

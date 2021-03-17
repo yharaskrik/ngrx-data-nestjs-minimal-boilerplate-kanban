@@ -1,11 +1,11 @@
+import { Injectable } from '@angular/core';
+import { Story } from '@ngrx-data-nestjs-minimal-boilerplate-kanban/shared/type/story';
 import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,
 } from '@ngrx/data';
 import { select } from '@ngrx/store';
-import { Injectable } from '@angular/core';
 import { selectStories } from './story.selectors';
-import { Story } from '@ngrx-data-nestjs-minimal-boilerplate-kanban/shared/type/story';
 
 @Injectable({
   providedIn: 'root',
